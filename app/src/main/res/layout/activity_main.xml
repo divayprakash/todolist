@@ -32,7 +32,8 @@
             android:layout_centerVertical="true"
             android:background="?android:attr/selectableItemBackground"
             android:text="@string/toolbar_button_text"
-            android:textColor="?android:attr/textColorPrimaryInverse"/>
+            android:textColor="?android:attr/textColorPrimaryInverse"
+            android:onClick="onAddItem"/>
 
     </android.support.v7.widget.Toolbar>
 
