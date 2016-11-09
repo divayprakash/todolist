@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textAutoCorrect"
-                android:text="@string/todoitem_enter_title"
+                android:hint="@string/todoitem_enter_title"
                 android:layout_toEndOf="@+id/add_todoitem_title_text"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/todoitem_enter_title_margin"
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/todoitem_enter_desc_margin"
-                android:text="@string/todoitem_enter_desc"
+                android:hint="@string/todoitem_enter_desc"
                 android:inputType="textMultiLine"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/add_todoitem_desc"/>
