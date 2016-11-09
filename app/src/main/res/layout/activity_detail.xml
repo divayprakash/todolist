@@ -8,11 +8,11 @@
     tools:context="io.github.todolist.todolist.DetailActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarDetail">
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,4 +24,10 @@
             android:textColor="?android:attr/textColorPrimaryInverse"
             android:textSize="@dimen/toolbar_text_size"/>
     </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewpager">
+    </android.support.v4.view.ViewPager>
 </RelativeLayout>

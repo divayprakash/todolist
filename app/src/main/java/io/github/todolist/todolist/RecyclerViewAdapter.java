@@ -1,6 +1,7 @@
 package io.github.todolist.todolist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     Toast.makeText(context, "#" + position + " - " + list[position] + " (Long click)", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(context, "#" + position + " - " + list[position], Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("position", position);
+                    context.startActivity(intent);
                 }
             }
         });
