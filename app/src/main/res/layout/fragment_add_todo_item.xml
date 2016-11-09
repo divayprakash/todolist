@@ -1,0 +1,82 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="io.github.todolist.todolist.AddTodoItemFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:id="@+id/add_todoitem_relative_layout_title">
+
+            <TextView
+                android:id="@+id/add_todoitem_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:text="@string/todoitem_title"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/add_todoitem_text_size"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoCorrect"
+                android:text="@string/todoitem_enter_title"
+                android:layout_toEndOf="@+id/add_todoitem_title_text"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/todoitem_enter_title_margin"
+                android:id="@+id/add_todoitem_title"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_todoitem_relative_layout_title"
+            android:id="@+id/add_todoitem_relative_layout_desc">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/todoitem_desc"
+                android:id="@+id/add_todoitem_desc_text"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/add_todoitem_text_size"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/todoitem_enter_desc_margin"
+                android:text="@string/todoitem_enter_desc"
+                android:inputType="textMultiLine"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/add_todoitem_desc"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_todoitem_relative_layout_desc"
+            android:id="@+id/add_todoitem_relative_layout_buttons">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/add_todoitem_button"
+                android:text="@string/add_todoitem_button_text"
+                android:layout_marginLeft="@dimen/todoitem_button_margin"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/add_todoitem_button_cancel"
+                android:text="@string/add_todoitem_cancel_button_text"
+                android:layout_marginLeft="@dimen/todoitem_cancel_button_margin"/>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

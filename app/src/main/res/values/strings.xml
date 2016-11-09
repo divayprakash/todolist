@@ -2,4 +2,11 @@
     <string name="app_name">todolist</string>
     <string name="app_name_alt">ToDoList</string>
     <string name="toolbar_button_text">Add</string>
+    <string name="add_todoitem_fragment_text">Add TodoItem</string>
+    <string name="todoitem_title">Title</string>
+    <string name="todoitem_enter_title">Enter title</string>
+    <string name="todoitem_desc">Description</string>
+    <string name="todoitem_enter_desc">Enter description</string>
+    <string name="add_todoitem_button_text">Add item</string>
+    <string name="add_todoitem_cancel_button_text">Cancel</string>
 </resources>
