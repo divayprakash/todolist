@@ -8,4 +8,5 @@
     <dimen name="todoitem_enter_desc_margin">10dp</dimen>
     <dimen name="todoitem_button_margin">10dp</dimen>
     <dimen name="todoitem_cancel_button_margin">10dp</dimen>
+    <dimen name="fab_margin">20dp</dimen>
 </resources>

@@ -15,65 +15,54 @@ interface ItemClickListener {
     void onClick(View view, int position, boolean isLongClick);
 }
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-
-    private Context mContext;
-    private String[] mList;
-
+    private Context context;
+    private String[] list;
     public RecyclerViewAdapter(Context contexts, String[] list) {
-        this.mContext = contexts;
-        this.mList = list;
+        this.context = contexts;
+        this.list = list;
     }
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View itemView = inflater.inflate(R.layout.item, parent, false);
         return new ViewHolder(itemView);
     }
-
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.titleTextView.setText(mList[position]);
+        holder.titleTextView.setText(list[position]);
         holder.setClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
                 if (isLongClick) {
-                    Toast.makeText(mContext, "#" + position + " - " + mList[position] + " (Long click)", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "#" + position + " - " + list[position] + " (Long click)", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(mContext, "#" + position + " - " + mList[position], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "#" + position + " - " + list[position], Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-
     @Override
     public int getItemCount() {
-        return mList.length;
+        return list.length;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener, View.OnLongClickListener{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         private TextView titleTextView;
         private ItemClickListener clickListener;
-
         public ViewHolder(View itemView) {
             super(itemView);
             titleTextView = (TextView)itemView.findViewById(R.id.textView);
             itemView.setTag(itemView);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
-
         }
-
         public void setClickListener(ItemClickListener itemClickListener) {
             this.clickListener = itemClickListener;
         }
-
         @Override
         public void onClick(View view) {
             clickListener.onClick(view, getPosition(), false);
         }
-
         @Override
         public boolean onLongClick(View view) {
             clickListener.onClick(view, getPosition(), true);

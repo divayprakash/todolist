@@ -1,10 +1,11 @@
 package io.github.todolist.todolist;
 
+import java.io.Serializable;
+
 /**
  * Created by Divay Prakash on 09-Nov-16.
  */
-
-public class TodoItem {
+public class TodoItem implements Serializable{
     private String title;
     private String desc;
 

@@ -1,0 +1,20 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="io.github.todolist.todolist.PageFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/add_todoitem_text_size"
+        android:text="@string/todoitem_title"
+        android:id="@+id/textViewTitle"/>
+    <TextView
+        android:id="@+id/textViewDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:textSize="@dimen/add_todoitem_text_size"
+        android:text="@string/todoitem_desc"/>
+</FrameLayout>

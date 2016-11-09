@@ -34,7 +34,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/todoitem_enter_title_margin"
                 android:id="@+id/add_todoitem_title"
-                android:backgroundTint="@color/colorAccent"/>
+                android:theme="@style/CustomEditText"/>
         </LinearLayout>
 
         <LinearLayout
@@ -60,7 +60,7 @@
                 android:inputType="textMultiLine"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/add_todoitem_desc"
-                android:backgroundTint="@color/colorAccent"/>
+                android:theme="@style/CustomEditText"/>
         </LinearLayout>
 
         <LinearLayout

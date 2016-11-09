@@ -2,6 +2,7 @@ package io.github.todolist.todolist;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText addTodoItemTitle;
     private EditText addTodoItemDesc;
     private Dialog dialog;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.setTitle("");
         toolbar.setSubtitle("");
-        recyclerView = (RecyclerView)findViewById(R.id.todoitems_view);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               onAddItem(view);
+           }
+        });
+        recyclerView = (RecyclerView) findViewById(R.id.todoitems_view);
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
@@ -60,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         addTodoItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 if(addTodoItemTitle.getText().toString().trim().length() > 0 && addTodoItemDesc.getText().toString().trim().length() > 0) {
                     String[] pass = new String[100];
                     DatabaseHandler db = new DatabaseHandler(MainActivity.this);
