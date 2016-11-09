@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addTodoItemCancelButton;
     private EditText addTodoItemTitle;
     private EditText addTodoItemDesc;
-    private Dialog dialog = new Dialog(this);
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbar.setTitle("");
+        toolbar.setSubtitle("");
         recyclerView = (RecyclerView)findViewById(R.id.todoitems_view);
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
