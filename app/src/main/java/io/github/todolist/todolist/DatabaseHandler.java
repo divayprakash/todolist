@@ -18,7 +18,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "todolist_db";
     private static final String TABLE_TODO = "todolist";
 
-    private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_DESC = "desc";
 
@@ -29,7 +28,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TODO_TABLE = "CREATE TABLE " + TABLE_TODO + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_TITLE + " TEXT,"
                 + KEY_DESC + " TEXT"
                 + ")";
@@ -45,14 +43,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addItem(TodoItem item) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, item.getId());
         values.put(KEY_TITLE, item.getTitle());
         values.put(KEY_DESC, item.getDesc());
         db.insert(TABLE_TODO, null, values);
         db.close();
     }
 
-    public List<TodoItem> getAllStudents() {
+    public List<TodoItem> getItems() {
         List<TodoItem> todoItemList = new ArrayList<TodoItem>();
         String selectQuery = "SELECT  * FROM " + TABLE_TODO;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -60,29 +57,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 TodoItem item = new TodoItem();
-                item.setId(Integer.parseInt(cursor.getString(0)));
-                item.setTitle(cursor.getString(1));
-                item.setDesc(cursor.getString(2));
+                item.setTitle(cursor.getString(0));
+                item.setDesc(cursor.getString(1));
                 todoItemList.add(item);
             } while (cursor.moveToNext());
         }
         return todoItemList;
     }
 
+    /*
     public int updateItem(TodoItem item) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, item.getId());
         values.put(KEY_TITLE, item.getTitle());
         values.put(KEY_DESC, item.getDesc());
-        return db.update(TABLE_TODO, values, KEY_ID + " = ?",
-                new String[]{String.valueOf(item.getId())});
+        return db.update(TABLE_TODO, values, KEY_ID + " = ?", new String[]{String.valueOf(item.getId())});
     }
 
     public void deleteItem(TodoItem item) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_TODO, KEY_ID + " = ?",
-                new String[] { String.valueOf(item.getId())});
+        db.delete(TABLE_TODO, KEY_ID + " = ?", new String[] { String.valueOf(item.getId())});
         db.close();
     }
+    */
 }

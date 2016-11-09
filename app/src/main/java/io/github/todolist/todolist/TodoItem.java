@@ -5,26 +5,15 @@ package io.github.todolist.todolist;
  */
 
 public class TodoItem {
-    private int id;
     private String title;
     private String desc;
 
     public TodoItem() {}
 
-    public TodoItem(int id, String title, String desc) {
-        this.id = id;
+    public TodoItem(String title, String desc) {
         this.title = title;
         this.desc = desc;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
